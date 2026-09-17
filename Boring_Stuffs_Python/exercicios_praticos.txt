@@ -1,0 +1,519 @@
+Exercícios práticos
+
+
+
+1. Quais das opções a seguir são operadores e quais são valores?
+*
+'hello'
+-88.8
+-
+/
++
+5
+
+
+
+2. Qual das opções a seguir é uma variável e qual é uma string?
+spam
+'spam'
+
+
+3. Nomeie três tipos de dados.
+
+
+
+4. De que é composta uma expressão? O que fazem as expressões?
+
+
+
+5. Este capítulo apresentou as instruções de atribuição, por exemplo, spam =
+10. Qual é a diferença entre uma expressão e uma instrução?
+
+
+6. O que a variável bacon conterá após o código a seguir ser executado?
+bacon = 20
+bacon + 1
+
+
+
+7. Para que valores as duas expressões a seguir serão avaliadas?
+'spam' + 'spamspam'
+'spam' * 3
+
+
+
+
+8. Por que eggs é um nome válido de variável enquanto 100 é inválido?
+
+
+
+
+
+9.  Quais  três  funções  podem  ser  usadas  para  obter  uma  versão  inteira,  de
+ponto flutuante ou em string de um valor?
+
+
+10. Por que a expressão a seguir causa um erro? Como você pode corrigi-la?
+'I have eaten ' + 99 + ' burritos.'
+
+
+
+--------------------------------------------------------------------
+
+Exercícios práticos
+
+1.  Quais  são  os  dois  valores  do  tipo  de  dado  booleano?  Como  eles  são
+escritos?
+
+
+2. Quais são os três operadores booleanos?
+
+
+3. Escreva as tabelas verdade de cada operador booleano (ou seja, todas as
+combinações possíveis de valores booleanos para o operador e como elas
+são avaliadas).
+
+
+4. Para que valores as expressões a seguir são avaliadas?
+(5 > 4) and (3 == 5)
+not (5 > 4)
+(5 > 4) or (3 == 5)
+not ((5 > 4) or (3 == 5))
+(True and True) and (True == False)
+(not False) or (not True)
+
+
+
+5. Quais são os seis operadores de comparação?
+
+
+6. Qual é a diferença entre o operador “igual a” e o operador de atribuição?
+
+
+7. Explique o que é uma condição e quando você usaria uma.
+
+
+
+8. Identifique os três blocos no código a seguir:
+spam = 0
+if spam == 10:
+    print('eggs')
+    if spam > 5:
+        print('bacon')
+    else:
+        print('ham')
+    print('spam')
+print('spam')
+
+
+
+9. Escreva um código que exiba Hello se 1 estiver armazenado em spam, Howdy
+se  2  estiver  armazenado  em  spam  e  Greetings!  se  outro  valor  estiver
+armazenado em spam.
+
+
+
+
+10. Que tecla você deve pressionar se o seu programa estiver preso em um
+loop infinito?
+
+
+
+11. Qual é a diferença entre break e continue?
+
+
+
+12. Qual é a diferença entre range(10), range(0, 10) e range(0, 10, 1) em um loop
+for?
+
+
+
+13. Crie um pequeno programa que mostre os números de 1 a 10 usando um
+loop for. Em seguida, crie um programa equivalente que mostre os números
+de 1 a 10 usando um loop while
+
+
+
+
+# -----------------------------------------------------------------
+
+Exercícios práticos
+
+
+1. Por que é vantajoso ter funções em seus programas?
+
+2. Em que momento o código de uma função é executado: quando a função é
+definida ou quando ela é chamada?
+
+3. Que instrução cria uma função?
+
+4. Qual é a diferença entre uma função e uma chamada de função?
+
+5.  Quantos  escopos  globais  existem  em  um  programa  Python?  Quantos
+escopos locais?
+
+6. O que acontece às variáveis em um escopo local quando a chamada da
+função retorna?
+
+7. O que é um valor de retorno? Um valor de retorno pode fazer parte de uma
+expressão?
+
+8. Se uma função não tiver uma instrução de retorno, qual será o valor de
+retorno de uma chamada a essa função?
+
+9. Como podemos fazer com que uma variável em uma função refira-se à
+variável global?
+
+10. Qual é o tipo de dado de None?
+
+11. O que a instrução import areallyourpetsnamederic faz?
+
+12. Se você tivesse uma função chamada bacon() em um módulo chamado
+spam, como você a chamaria após ter importado spam?
+
+13. Como podemos evitar que um programa falhe quando houver um erro?
+
+14. De que é composta a cláusula try? De que é composta a cláusula except?
+
+Projetos práticos
+
+Para exercitar, escreva programas que executem as tarefas a seguir.
+Sequência de Collatz
+Crie uma função chamada collatz() que tenha um parâmetro de nome number.
+Se number for par, collatz() deverá exibir number // 2 e retornar esse valor. Se
+number for ímpar, collatz() deverá exibir e retornar 3 * number + 1.
+Em seguida, crie um programa que permita que o usuário digite um inteiro
+e fique chamando collatz() com esse número até a função retornar o valor 1.
+(De modo bastante surpreendente, essa sequência, na realidade, funciona para
+qualquer inteiro – cedo ou tarde, ao usar essa sequência, você chegará em 1!
+Até mesmo os matemáticos não têm muita certeza do motivo. Seu programa
+está explorando o que chamamos de sequência de Collatz, às vezes chamada
+de “o mais simples problema matemático impossível”.)
+Lembre-se de converter o valor de retorno de input() em um inteiro usando a
+função int(); caso contrário, o valor será do tipo string.
+
+Dica: um number inteiro será par se number % 2 == 0 e ímpar se number % 2 ==
+1.
+A saída desse programa poderá ter uma aparência semelhante a:
+Enter number:
+3
+10
+5
+16
+8
+4
+2
+1
+
+Validação de dados de entrada
+
+Acrescente instruções try e except no projeto anterior para detectar se o usuário
+digitou uma string que não corresponda a um inteiro. Normalmente, a função
+int() gerará um erro ValueError se receber uma string que não seja um inteiro,
+como  em  int('puppy').  Na  cláusula  except,  exiba  uma  mensagem  ao  usuário
+informando-lhe que um inteiro deve ser fornecido.
+
+
+
+
+# -----------------------------------------------------------------------
+
+
+
+
+
+Exercícios práticos
+
+1. O que é []?
+
+2.  Como  você  atribuiria  o  valor  'hello'  como  o  terceiro  valor  de  uma  lista
+armazenada em uma variável chamada spam? (Suponha que spam contenha
+[2, 4, 6, 8, 10].)
+Para as três perguntas a seguir, vamos supor que spam contenha a lista ['a', 'b',
+'c', 'd'].
+
+
+3. Para que valor spam[int(int('3' * 2) / 11)] é avaliado?
+
+
+4. Para que valor spam[-1] é avaliado?
+
+
+5. Para que valor spam[:2] é avaliado?
+Para as três perguntas a seguir, vamos supor que bacon contenha a lista [3.14,
+'cat', 11, 'cat', True].
+
+
+
+6. Para que valor bacon.index('cat') é avaliado?
+
+
+7. Como bacon.append(99) altera o valor de lista em bacon?
+
+
+8. Como bacon.remove('cat') altera o valor de lista em bacon?
+
+
+9. Quais são os operadores para concatenação de lista e para repetição de
+lista?
+
+
+10. Qual é a diferença entre os métodos de lista append() e insert()?
+
+
+11. Quais são as duas maneiras de remover valores de uma lista?
+
+
+12.  Nomeie  alguns  aspectos  em  relação  aos  quais  os  valores  de  lista  são
+semelhantes aos valores de string.
+
+
+13. Qual é a diferença entre listas e tuplas?
+
+
+14. Como você deve digitar o valor de uma tupla que contenha somente o
+valor inteiro 42?
+
+
+15.  Como  podemos  obter  a  forma  de  tupla  de  um  valor  de  lista?  Como
+podemos obter a forma de lista de um valor de tupla?
+
+
+16. As variáveis que “contêm” valores de lista não contêm realmente as listas
+diretamente. O que elas contêm em seu lugar?
+
+
+17. Qual é a diferença entre copy.copy() e copy.deepcopy()?
+Projetos práticos
+Para exercitar, escreva programas que executem as tarefas a seguir.
+Código para vírgulas
+Suponha que você tenha um valor de lista como:
+spam = ['apples', 'bananas', 'tofu', 'cats']
+Crie uma função que aceite um valor de lista como argumento e retorne
+uma string com todos os itens separados por uma vírgula e um espaço, com
+and inserido antes do último item. Por exemplo, se passarmos a lista spam
+anterior  à  função,  'apples,  bananas,  tofu,  and  cats'  será  retornado.  Porém  sua
+função  deverá  ser  capaz  de  trabalhar  com  qualquer  valor  de  lista  que  ela
+receber.
+Grade para imagem composta de caracteres
+Suponha  que  você  tenha  uma  lista  de  listas  em  que  cada  valor  das  listas
+internas seja uma string de um caractere como:
+grid = [['.', '.', '.', '.', '.', '.'],
+        ['.', 'O', 'O', '.', '.', '.'],
+        ['O', 'O', 'O', 'O', '.', '.'],
+        ['O', 'O', 'O', 'O', 'O', '.'],
+        ['.', 'O', 'O', 'O', 'O', 'O'],
+        ['O', 'O', 'O', 'O', 'O', '.'],
+        ['O', 'O', 'O', 'O', '.', '.'],
+        ['.', 'O', 'O', '.', '.', '.'],
+        ['.', '.', '.', '.', '.', '.']]
+Podemos pensar em grid[x][y] como sendo o caractere nas coordenadas x e y
+de uma “imagem” desenhada com caracteres textuais. A origem (0, 0) estará
+no canto superior esquerdo, as coordenadas x aumentam para a direita e as
+coordenadas y aumentam para baixo.
+Copie o valor da grade anterior e crie um código que a utilize para exibir a
+imagem:
+..OO.OO..
+.OOOOOOO.
+.OOOOOOO.
+..OOOOO..
+...OOO...
+....O....
+Dica:  você  deverá  usar  um  loop  em  um  loop  para  exibir  grid[0][0],  em
+seguida  grid[1][0],  grid[2][0]  e  assim  por  diante,  até  grid[8][0].  Com  isso,  a
+primeira  linha  estará  concluída,  portanto  exiba  uma  quebra  de  linha.  Em
+seguida,  seu  programa  deverá  exibir  grid[0][1],  depois  grid[1][1],  grid[2][1]  e
+assim por diante. O último item que seu programa exibirá é grid[8][5].
+Além disso, lembre-se de passar o argumento nomeado end para print() se
+não quiser que uma quebra de linha seja exibida automaticamente após cada
+chamada a print()
+
+
+
+# -----------------------------------------------------------------------------
+
+Exercícios práticos
+
+1. Qual é a aparência do código para criar um dicionário vazio?
+
+2. Qual é a aparência de um valor de dicionário com uma chave igual a 'foo' e
+um valor 42?
+
+3. Qual é a principal diferença entre um dicionário e uma lista?
+
+4. O que acontecerá se você tentar acessar spam['foo'] se spam for igual a {'bar':
+100}?
+
+5. Se um dicionário estiver armazenado em spam, qual será a diferença entre
+as expressões 'cat' in spam e 'cat' in spam.keys()?
+
+6. Se um dicionário estiver armazenado em spam, qual será a diferença entre
+as expressões 'cat' in spam e 'cat' in spam.values()?
+
+7. Qual seria um atalho para o código a seguir?
+
+if 'color' not in spam:
+    spam['color'] = 'black'
+
+8.  Qual  módulo  e  qual  função  podem  ser  usados  para  fazer  uma
+“apresentação elegante” (pretty print) dos valores do dicionário?
+
+Projetos práticos
+
+Para exercitar, escreva programas que executem as tarefas a seguir.
+Inventário de um jogo de fantasia
+Você  está  criando  um  videogame  de  fantasia.  A  estrutura  de  dados  para
+modelar o inventário do jogador será um dicionário em que as chaves são
+valores de string que descrevem o item do inventário e o valor será um inteiro
+detalhando quantos itens desse tipo o jogador tem. Por exemplo, o valor de
+dicionário {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12} quer dizer que o
+jogador  tem  1  corda  (rope),  6  tochas  (torches),  42  moedas  de  ouro  (gold
+coins) e assim por diante.
+
+Crie  uma  função  chamada  displayInventory()  que  possa  receber  qualquer
+“inventário” possível e exiba essas informações da seguinte maneira:
+Inventory:
+12 arrow
+42 gold coin
+1 rope
+6 torch
+1 dagger
+Total number of items: 62
+Dica: você pode utilizar um loop for para percorrer todas as chaves de um
+dicionário.
+# inventory.py
+stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
+
+def displayInventory(inventory):
+    print("Inventory:")
+    item_total = 0
+    for k, v in inventory.items():
+        print(str(v) + ' ' + k)
+        item_total += v
+    print("Total number of items: " + str(item_total))
+
+displayInventory(stuff)
+Função  de  “lista  para  dicionário”  para  o  inventário  de
+jogo de fantasia
+Suponha que os despojos de um dragão vencido seja representado como uma
+lista de strings como esta:
+dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
+Crie  uma  função  chamada  addToInventory(inventory,  addedItems),  em  que  o
+parâmetro inventory seja um dicionário representando o inventário do jogador
+(como  no  projeto  anterior)  e  o  parâmetro  addedItems  seja  uma  lista  como
+dragonLoot.  A  função  addToInventory()  deve  retornar  um  dicionário  que
+represente o inventário atualizado. Observe que a lista addedItems pode conter
+vários itens iguais. Seu código poderá ser semelhante a:
+def addToInventory(inventory, addedItems):
+    # seu código deve ser inserido aqui
+
+inv = {'gold coin': 42, 'rope': 1}
+dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
+inv = addToInventory(inv, dragonLoot)
+displayInventory(inv)
+O programa anterior (com sua função displayInventory() do projeto anterior)
+apresentará a saída a seguir:
+Inventory:
+45 gold coin
+1 rope
+1 ruby
+1 dagger
+
+Total number of items: 48
+
+
+# --------------------------------------------------------------------
+
+Exercícios práticos
+
+1. O que são caracteres de escape?
+
+
+
+2. O que os caracteres de escape \n e \t representam?
+
+
+
+3. Como podemos inserir um caractere \ de barra invertida em uma string?
+
+
+
+4. O valor de string "Howl's Moving Castle" é uma string válida. Por que não há
+problema no fato de o caractere único de aspas simples na palavra Howl's
+não estar escapado?
+
+
+
+5. Se não quiser colocar \n em sua string, como você poderá escrever uma
+string contendo quebras de linha?
+
+
+
+6. Para que valores as expressões a seguir são avaliadas?
+• 'Hello world!'[1]
+• 'Hello world!'[0:5]
+• 'Hello world!'[:5]
+• 'Hello world!'[3:]
+
+
+
+
+
+7. Para que valores as expressões a seguir são avaliadas?
+• 'Hello'.upper()
+• 'Hello'.upper().isupper()
+• 'Hello'.upper().lower()
+
+
+
+
+8. Para que valores as expressões a seguir são avaliadas?
+• 'Remember, remember, the fifth of November.'.split()
+• '-'.join('There can be only one.'.split())
+
+
+
+
+
+
+
+9.  Quais  métodos  de  string  podem  ser  usados  para  justificar  uma  string  à
+direita, à esquerda e para centralizá-la?
+
+
+
+
+
+10. Como podemos remover caracteres de espaços em branco no início e no
+fim de uma string?
+Projeto prático
+Para exercitar, escreva um programa que execute a seguinte tarefa.
+Exibição de tabela
+Crie uma função chamada printTable() que receba uma lista de listas de strings
+e  a  exiba  em  uma  tabela  bem  organizada,  com  cada  coluna  justificada  à
+direita. Suponha que todas as listas internas contenham o mesmo número de
+strings. Por exemplo, o valor poderá ter o seguinte aspecto:
+tableData = [['apples', 'oranges', 'cherries', 'banana'],
+             ['Alice', 'Bob', 'Carol', 'David'],
+             ['dogs', 'cats', 'moose', 'goose']]
+Sua função printTable() exibirá o seguinte:
+   apples Alice  dogs
+  oranges   Bob  cats
+cherries Carol moose
+   banana David goose
+Dica: seu código inicialmente deverá localizar a string mais longa em cada
+uma das listas internas para que a coluna toda tenha largura suficiente para
+que  todas  as  strings  possam  ser  inseridas.  Você  pode  armazenar  a  largura
+máxima de cada coluna como uma lista de inteiros. A função printTable() pode
+começar com colWidths = [0] * len(tableData), que criará uma lista contendo o
+mesmo  número  de  valores  0  que  o  número  de  listas  internas  em  tableData.
+Dessa maneira, colWidths[0] poderá armazenar a largura da string mais longa
+de tableData[0], colWidths[1] poderá armazenar a largura da string mais longa de
+tableData[1] e assim por diante. Você poderá então identificar o maior valor na
+lista colWidths e descobrir a largura na forma de um inteiro a ser passada para
+o método de string rjust().
+
+
+
+
+# -----------------------------------------------------------------------------------

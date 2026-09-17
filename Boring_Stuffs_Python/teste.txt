@@ -1,0 +1,172 @@
+---------------------------------------------------Conceitos básicos obrigatórios
+Elemento	O que é	Exemplo
+Evento de Início	Onde o processo começa	"Processo recebido"
+Evento de Fim	Onde o processo termina	"Processo concluído"
+Tarefa	Ação que deve ser executada	"Aprovar processo", "Enviar email"
+Gateway	Ponto de decisão	"Valor > 10.000?"
+Fluxo	Conecta os elementos	Setas que ligam as etapas
+Tipos de Gateway (importante!)
+Gateway	Quando usar
+Exclusivo (XOR)	Apenas UM caminho é escolhido (se X, faz A; se Y, faz B)
+Paralelo (AND)	Todos os caminhos são executados ao mesmo tempo
+Inclusivo (OR)	Um ou mais caminhos podem ser escolhidos
+
+Tipos de Tarefa
+
+Tarefa	Descrição
+Usuário	Precisa de interação humana (ex: aprovar, preencher)
+Serviço	Automática (ex: enviar email, integrar com sistema)
+Script	Executa código (ex: calcular valor)
+Manual	Feita fora do sistema (ex: assinar documento)
+Exemplo prático de BPMN
+text
+[INÍCIO]
+    ↓
+[Receber Nota Fiscal]
+    ↓
+[Gateway - Valor?]
+    ↓
+    ├─ < 5.000 → [Inserir no Banco] → [FIM]
+    ├─ > 5.000 → [Enviar Email] → [FIM]
+    └─ = 0 → [Contabilizar] → [FIM]
+---------------------------------------------🔧 2. Automação de Processos
+Conceitos-chave
+Termo	O que significa
+RPA	Robotic Process Automation (robôs que executam tarefas repetitivas)
+Workflow	Fluxo de trabalho automatizado
+Regra de negócio	Condição que define o que fazer (ex: "se valor > 5.000, enviar email")
+Orquestração	Coordenar vários sistemas/processos
+Abordagem para automatizar
+Entender a regra – O que o negócio precisa?
+
+Mapear o fluxo – Como as etapas se conectam?
+
+Identificar decisões – Onde tem "se/então/senão"?
+
+Configurar na ferramenta – Low Code ou código puro
+
+Testar – Validar cenários possíveis
+
+Documentar – Registrar como funciona
+
+------------------------------------------------------------🖥️ 3. Low Code
+O que é
+Plataformas que permitem criar aplicações com pouca programação, usando interfaces visuais (arrastar e soltar)
+
+
+Vantagens que você pode citar
+Rapidez no desenvolvimento
+
+Fácil manutenção
+
+Menos dependência de programadores
+
+Visualização clara do fluxo
+
+-------------------------------------------------------📄 4. XML (Extensible Markup Language)
+O que você precisa saber
+Conceito	Descrição
+Tag	Marcação que define dados <nome>João</nome>
+Atributo	Informação extra <pessoa id="1">
+Estrutura	Hierárquica (pai → filho)
+Exemplo
+xml
+<processo>
+    <id>123</id>
+    <valor>15000</valor>
+    <status>aprovado</status>
+</processo>
+Por que XML é usado em automação?
+Configurar fluxos
+
+Integrar sistemas
+
+Trocar dados entre plataformas
+
+----------------------------------------------------------🧠 5. Raciocínio Lógico
+O que vão avaliar
+Habilidade	Como demonstrar
+Pensar em etapas	Quebrar problema em partes menores
+Tomar decisões	Usar "se/então/senão"
+Otimizar	Buscar soluções mais simples
+Antecipar erros	Pensar em cenários de exceção
+Exemplo de raciocínio
+Problema: "Processos até R$10k são automáticos, acima disso precisam de aprovação"
+
+Solução lógica:
+
+text
+1. Receber processo
+2. Verificar valor
+3. Se ≤ 10.000 → aprovar automático
+4. Se > 10.000 → enviar para gestor
+5. Gestor aprova → finalizar
+6. Gestor recusa → arquivar
+🏛️ 6. Conhecimento do Judiciário
+O que pode ser cobrado
+Tópico	O que saber
+Tribunais	TJs (Tribunais de Justiça) em cada estado
+Processos	Fluxos burocráticos com muitas regras
+Prazos	Cumprimento de prazos legais
+Automação	Agilizar processos judiciais
+Dica
+"Entendo que o Judiciário lida com processos complexos, com muitas regras e prazos, onde automação ajuda a reduzir erros e agilizar decisões."
+
+-----------------------------------------------------------🗂️ 7. Documentação Técnica
+O que documentar
+O que documentar	Por quê
+Fluxo do processo	Explica como funciona
+Regras de negócio	Mostra as decisões
+Configurações	Como foi implementado
+Manutenção	Como atualizar no futuro
+Como documentar
+Diagramas BPMN
+
+Descrição textual
+
+Exemplos de uso
+
+Manuais de configuração
+
+-----------------------------------------------------------🎤 8. Perguntas comuns na entrevista
+Sobre BPMN
+Pergunta	Resposta esperada
+"O que é um gateway?"	Ponto de decisão no fluxo
+"Diferença entre tarefa de usuário e serviço?"	Usuário = humano, Serviço = automático
+"Como modelaria uma aprovação?"	Tarefa de usuário + gateway de decisão
+Sobre Low Code
+Pergunta	Resposta esperada
+"Já usou Low Code?"	Sim, cite alguma ferramenta
+"Por que usar Low Code?"	Agilidade e facilidade de manutenção
+"O que você sabe sobre Infox?"	Pesquise antes da entrevista!
+Sobre Automação
+Pergunta	Resposta esperada
+"Como você automatizaria um processo?"	Passo a passo: entender, mapear, configurar, testar, documentar
+"Como lidar com mudanças nas regras?"	Ajustar fluxo, testar novamente, atualizar documentação
+Sobre o Judiciário
+Pergunta	Resposta esperada
+"Conhece o setor?"	Sim, tem processos complexos com muitas regras
+"Como você lidaria com um processo burocrático?"	Quebrando em etapas e automatizando o máximo possível
+
+
+-------------------------------------------------------📝 9. Script rápido para a entrevista
+
+"Oi, sou [seu nome]. Estou animado com a vaga porque gosto de entender processos e transformar regras em automação.
+
+Tenho experiência com BPMN, modelando fluxos com gateways, tarefas e eventos.
+
+Já trabalhei com automação, transformando regras de negócio em fluxos automatizados.
+
+Tenho facilidade com novas ferramentas e acredito que minha capacidade analítica e lógica vai contribuir com a equipe.
+
+Estou à disposição para perguntas."
+
+📋 10. Checklist de preparação
+□ Estudar BPMN (gateways, tarefas, eventos)
+□ Entender conceitos de Low Code
+□ Saber o básico de XML
+□ Praticar raciocínio lógico
+□ Pesquisar sobre a Infox
+□ Preparar perguntas para fazer
+□ Revisar experiências com automação
+□ Treinar o script de apresentaçã
