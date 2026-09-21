@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>150 Comandos Python para Sistema | Guia Completo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f2f6fc;
+            color: #152b3c;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+
+        /* Header */
+        .hero {
+            background: linear-gradient(145deg, #0a1e2f, #1a3a52);
+            border-radius: 2rem;
+            padding: 3rem 2.5rem;
+            color: white;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.25);
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .hero h1 i { color: #f7d44a; font-size: 2.4rem; }
+        .hero p {
+            font-size: 1.05rem;
+            color: #c9ddec;
+            max-width: 850px;
+            margin: 1rem 0 0.5rem;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #f7d44a;
+            color: #0a1e2f;
+            padding: 0.25rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.5rem;
+        }
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+        }
+        .hero-stats span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #b6d0e6;
+        }
+        .hero-stats i { color: #f7d44a; }
+
+        /* Navegação */
+        .nav-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #dfeaf4;
+        }
+        .nav-categories a {
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #1a3a52;
+            background: #e7f0f9;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        .nav-categories a:hover { background: #c9ddec; color: #0a1e2f; }
+
+        /* Seções */
+        .section {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #dfeaf4;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            scroll-margin-top: 1rem;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            border-bottom: 2px solid #e7f0f9;
+            padding-bottom: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .section-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0a1e2f;
+        }
+        .section-header i {
+            font-size: 1.6rem;
+            color: #1a3a52;
+        }
+        .section-desc {
+            color: #4a657a;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        /* Grid de comandos */
+        .command-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1rem;
+        }
+        .command-card {
+            background: #f9fcff;
+            border-radius: 1rem;
+            padding: 1rem 1.2rem;
+            border: 1px solid #e4edf5;
+            transition: 0.15s;
+        }
+        .command-card:hover {
+            border-color: #b6d0e6;
+            background: #f4faff;
+        }
+        .command-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #0a1e2f;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.3rem;
+        }
+        .command-name .badge-num {
+            font-size: 0.6rem;
+            background: #dce8f2;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #1a3a52;
+            font-family: 'Inter', sans-serif;
+        }
+        .command-example {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            background: #0a1e2f;
+            color: #d6e6f2;
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+            margin: 0.4rem 0 0.3rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .command-desc {
+            font-size: 0.8rem;
+            color: #2e4a5f;
+            line-height: 1.4;
+            margin-top: 0.3rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0 0.5rem;
+            color: #5a7a94;
+            font-size: 0.85rem;
+            border-top: 1px solid #dfeaf4;
+            margin-top: 2rem;
+        }
+        .footer i { color: #1a3a52; }
+        .footer a { color: #1a3a52; text-decoration: none; font-weight: 600; }
+        .footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 700px) {
+            .hero { padding: 2rem 1.2rem; }
+            .hero h1 { font-size: 1.7rem; }
+            .section { padding: 1.2rem; }
+            .command-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="hero">
+        <div class="badge"><i class="fas fa-terminal"></i> PYTHON SYSTEM AUTOMATION</div>
+        <h1><i class="fas fa-folder-tree"></i> 150 Comandos para Interagir com seu Computador</h1>
+        <p>
+            Guia completo baseado no aprendizado de <code>os.path.exists()</code> e expandido para dominar a automação de sistema com Python.
+            Explore, manipule e automatize tudo na sua máquina.
+        </p>
+        <div class="hero-stats">
+            <span><i class="fas fa-code"></i> 150 Comandos</span>
+            <span><i class="fas fa-folder-open"></i> 10 Categorias</span>
+            <span><i class="fas fa-file-code"></i> Exemplos Práticos</span>
+            <span><i class="fas fa-rocket"></i> Bônus: Toolkit</span>
+        </div>
+    </div>
+
+    <!-- NAVEGAÇÃO -->
+    <div class="nav-categories">
+        <a href="#sec1">🔍 Verificar (1-15)</a>
+        <a href="#sec2">📂 Listar (16-30)</a>
+        <a href="#sec3">📊 Informações (31-45)</a>
+        <a href="#sec4">✏️ Criar/Deletar (46-63)</a>
+        <a href="#sec5">🔎 Buscar (64-72)</a>
+        <a href="#sec6">🖥️ Sistema (73-95)</a>
+        <a href="#sec7">📄 Ler/Escrever (96-110)</a>
+        <a href="#sec8">⚙️ Executar (111-125)</a>
+        <a href="#sec9">🗜️ Compactar (126-135)</a>
+        <a href="#sec10">📡 Monitorar (136-150)</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SEÇÃO 1: VERIFICAR EXISTÊNCIA -->
+    <!-- ============================================================ -->
+    <div class="section" id="sec1">
+        <div class="section-header">
+            <i class="fas fa-search"></i>
+            <h2>1. Verificar Existência</h2>
+            <span style="font-size:0.75rem; background:#e7f0f9; padding:0.2rem 0.8rem; border-radius:30px; font-weight:600; color:#1a3a52;">Comandos 1–15</span>
+        </div>
+        <div class="section-desc">Como o <code>os.path.exists('C:\\some_made_up_folder')</code> que você aprendeu.</div>
+        <div class="command-grid">
+
+            <div class="command-card">
+                <div class="command-name">os.path.exists() <span class="badge-num">#1</span></div>
+                <div class="command-example">os.path.exists('C:\\Users\\paulinho\\Documents')</div>
+                <div class="command-desc">Verifica se arquivo ou pasta existe.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.path.isfile() <span class="badge-num">#2</span></div>
+                <div class="command-example">os.path.isfile('C:\\temp\\arquivo.txt')</div>
+                <div class="command-desc">Verifica se é um arquivo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.path.isdir() <span class="badge-num">#3</span></div>
+                <div class="command-example">os.path.isdir('C:\\Users\\paulinho')</div>
+                <div class="command-desc">Verifica se é um diretório.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.path.islink() <span class="badge-num">#4</span></div>
+                <div class="command-example">os.path.islink('/usr/bin/python3')</div>
+                <div class="command-desc">Verifica se é link simbólico.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.path.ismount() <span class="badge-num">#5</span></div>
+                <div class="command-example">os.path.ismount('C:\\')</div>
+                <div class="command-desc">Verifica se é ponto de montagem.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.access(R_OK) <span class="badge-num">#6</span></div>
+                <div class="command-example">os.access('C:\\temp', os.R_OK)</div>
+                <div class="command-desc">Verifica permissão de leitura.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.access(W_OK) <span class="badge-num">#7</span></div>
+                <div class="command-example">os.access('C:\\temp', os.W_OK)</div>
+                <div class="command-desc">Verifica permissão de escrita.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.access(X_OK) <span class="badge-num">#8</span></div>
+                <div class="command-example">os.access('C:\\temp', os.X_OK)</div>
+                <div class="command-desc">Verifica permissão de execução.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.path.isabs() <span class="badge-num">#9</span></div>
+                <div class="command-example">os.path.isabs('C:\\Users')</div>
+                <div class="command-desc">Verifica se caminho é absoluto.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.path.isabs() relativo <span class="badge-num">#10</span></div>
+                <div class="command-example">os.path.isabs('Documents\\arquivo.txt')</div>
+                <div class="command-desc">Verifica se caminho é relativo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">getsize() == 0 <span class="badge-num">#11</span></div>
+                <div class="command-example">os.path.getsize('C:\\temp\\arquivo.txt') == 0</div>
+                <div class="command-desc">Verifica se arquivo está vazio.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.path.samefile() <span class="badge-num">#12</span></div>
+                <div class="command-example">os.path.samefile('C:\\temp\\a.txt', 'C:\\temp\\b.txt')</div>
+                <div class="command-desc">Verifica se é o mesmo arquivo (hard link).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">listdir() vazio <span class="badge-num">#13</span></div>
+                <div class="command-example">len(os.listdir('C:\\temp')) == 0</div>
+                <div class="command-desc">Verifica se pasta está vazia.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">isfile + access <span class="badge-num">#14</span></div>
+                <div class="command-example">os.path.isfile('C:\\temp\\a.txt') and os.access('C:\\temp\\a.txt', os.R_OK)</div>
+                <div class="command-desc">Verifica se arquivo é legível.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">tasklist (Windows) <span class="badge-num">#15</span></div>
+                <div class="command-example">os.system('tasklist | findstr python.exe') == 0</div>
+                <div class="command-desc">Verifica se processo está rodando.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SEÇÃO 2: NAVEGAR E LISTAR -->
+    <!-- ============================================================ -->
+    <div class="section" id="sec2">
+        <div class="section-header">
+            <i class="fas fa-folder-open"></i>
+            <h2>2. Navegar e Listar Arquivos</h2>
+            <span style="font-size:0.75rem; background:#e7f0f9; padding:0.2rem 0.8rem; border-radius:30px; font-weight:600; color:#1a3a52;">Comandos 16–30</span>
+        </div>
+        <div class="command-grid">
+
+            <div class="command-card">
+                <div class="command-name">os.listdir() <span class="badge-num">#16</span></div>
+                <div class="command-example">os.listdir('C:\\Users\\paulinho')</div>
+                <div class="command-desc">Lista arquivos de uma pasta.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">join + listdir <span class="badge-num">#17</span></div>
+                <div class="command-example">[os.path.join('C:\\temp', f) for f in os.listdir('C:\\temp')]</div>
+                <div class="command-desc">Lista com caminho completo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Apenas arquivos <span class="badge-num">#18</span></div>
+                <div class="command-example">[f for f in os.listdir('C:\\temp') if os.path.isfile(os.path.join('C:\\temp', f))]</div>
+                <div class="command-desc">Lista apenas arquivos (não pastas).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Apenas pastas <span class="badge-num">#19</span></div>
+                <div class="command-example">[f for f in os.listdir('C:\\temp') if os.path.isdir(os.path.join('C:\\temp', f))]</div>
+                <div class="command-desc">Lista apenas diretórios.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.walk() <span class="badge-num">#20</span></div>
+                <div class="command-example">for raiz, pastas, arquivos in os.walk('C:\\temp'): print(raiz, arquivos)</div>
+                <div class="command-desc">Lista recursivamente (todos os níveis).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">endswith('.txt') <span class="badge-num">#21</span></div>
+                <div class="command-example">[f for f in os.listdir('C:\\temp') if f.endswith('.txt')]</div>
+                <div class="command-desc">Lista apenas arquivos .txt.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">glob.glob() <span class="badge-num">#22</span></div>
+                <div class="command-example">glob.glob('C:\\temp\\*.txt')</div>
+                <div class="command-desc">Lista com glob (padrão).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">glob recursivo <span class="badge-num">#23</span></div>
+                <div class="command-example">glob.glob('C:\\temp\\**\\*.py', recursive=True)</div>
+                <div class="command-desc">Lista recursivo com glob.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Path.iterdir() <span class="badge-num">#24</span></div>
+                <div class="command-example">Path('C:\\temp').iterdir()</div>
+                <div class="command-desc">Lista com pathlib (moderno).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Path + is_file() <span class="badge-num">#25</span></div>
+                <div class="command-example">[f for f in Path('C:\\temp').iterdir() if f.is_file()]</div>
+                <div class="command-desc">Lista com pathlib e filtro.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Path.rglob() <span class="badge-num">#26</span></div>
+                <div class="command-example">list(Path('C:\\temp').rglob('*.py'))</div>
+                <div class="command-desc">Lista com pathlib (recursivo).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.getcwd() <span class="badge-num">#27</span></div>
+                <div class="command-example">os.getcwd()</div>
+                <div class="command-desc">Lista diretório atual.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">expanduser('~') <span class="badge-num">#28</span></div>
+                <div class="command-example">os.path.expanduser('~')</div>
+                <div class="command-desc">Lista pasta do usuário.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Downloads path <span class="badge-num">#29</span></div>
+                <div class="command-example">os.path.join(os.path.expanduser('~'), 'Downloads')</div>
+                <div class="command-desc">Lista pasta de downloads.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">tempfile.gettempdir() <span class="badge-num">#30</span></div>
+                <div class="command-example">tempfile.gettempdir()</div>
+                <div class="command-desc">Lista pasta temporária.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SEÇÃO 3: INFORMAÇÕES DE ARQUIVOS -->
+    <!-- ============================================================ -->
+    <div class="section" id="sec3">
+        <div class="section-header">
+            <i class="fas fa-info-circle"></i>
+            <h2>3. Informações sobre Arquivos</h2>
+            <span style="font-size:0.75rem; background:#e7f0f9; padding:0.2rem 0.8rem; border-radius:30px; font-weight:600; color:#1a3a52;">Comandos 31–45</span>
+        </div>
+        <div class="command-grid">
+
+            <div class="command-card">
+                <div class="command-name">getsize() bytes <span class="badge-num">#31</span></div>
+                <div class="command-example">os.path.getsize('C:\\temp\\arquivo.txt')</div>
+                <div class="command-desc">Tamanho do arquivo em bytes.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">getsize() KB <span class="badge-num">#32</span></div>
+                <div class="command-example">os.path.getsize('C:\\temp\\arquivo.txt') / 1024</div>
+                <div class="command-desc">Tamanho em KB.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">getsize() MB <span class="badge-num">#33</span></div>
+                <div class="command-example">os.path.getsize('C:\\temp\\arquivo.txt') / (1024 * 1024)</div>
+                <div class="command-desc">Tamanho em MB.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">getctime() <span class="badge-num">#34</span></div>
+                <div class="command-example">time.ctime(os.path.getctime('C:\\temp\\arquivo.txt'))</div>
+                <div class="command-desc">Data de criação.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">getmtime() <span class="badge-num">#35</span></div>
+                <div class="command-example">time.ctime(os.path.getmtime('C:\\temp\\arquivo.txt'))</div>
+                <div class="command-desc">Data de modificação.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">getatime() <span class="badge-num">#36</span></div>
+                <div class="command-example">time.ctime(os.path.getatime('C:\\temp\\arquivo.txt'))</div>
+                <div class="command-desc">Data de acesso.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">basename() <span class="badge-num">#37</span></div>
+                <div class="command-example">os.path.basename('C:\\temp\\arquivo.txt')</div>
+                <div class="command-desc">Nome do arquivo (sem caminho).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">dirname() <span class="badge-num">#38</span></div>
+                <div class="command-example">os.path.dirname('C:\\temp\\arquivo.txt')</div>
+                <div class="command-desc">Caminho da pasta (sem arquivo).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">splitext()[1] <span class="badge-num">#39</span></div>
+                <div class="command-example">os.path.splitext('C:\\temp\\arquivo.txt')[1]</div>
+                <div class="command-desc">Extensão do arquivo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">splitext()[0] <span class="badge-num">#40</span></div>
+                <div class="command-example">os.path.splitext('C:\\temp\\arquivo.txt')[0]</div>
+                <div class="command-desc">Nome sem extensão.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">abspath() <span class="badge-num">#41</span></div>
+                <div class="command-example">os.path.abspath('arquivo.txt')</div>
+                <div class="command-desc">Caminho absoluto.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">normpath() <span class="badge-num">#42</span></div>
+                <div class="command-example">os.path.normpath('C:\\temp\\..\\temp\\arquivo.txt')</div>
+                <div class="command-desc">Caminho normalizado.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">relpath() <span class="badge-num">#43</span></div>
+                <div class="command-example">os.path.relpath('C:\\temp\\arquivo.txt', 'C:\\temp')</div>
+                <div class="command-desc">Caminho relativo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.stat() <span class="badge-num">#44</span></div>
+                <div class="command-example">os.stat('C:\\temp\\arquivo.txt')</div>
+                <div class="command-desc">Informações completas (stat).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Dono (Linux) <span class="badge-num">#45</span></div>
+                <div class="command-example">pwd.getpwuid(os.stat('/home/paulinho').st_uid).pw_name</div>
+                <div class="command-desc">Dono do arquivo (Linux).</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SEÇÃO 4: CRIAR E DELETAR -->
+    <!-- ============================================================ -->
+    <div class="section" id="sec4">
+        <div class="section-header">
+            <i class="fas fa-edit"></i>
+            <h2>4. Criar e Deletar</h2>
+            <span style="font-size:0.75rem; background:#e7f0f9; padding:0.2rem 0.8rem; border-radius:30px; font-weight:600; color:#1a3a52;">Comandos 46–63</span>
+        </div>
+        <div class="command-grid">
+
+            <div class="command-card">
+                <div class="command-name">os.mkdir() <span class="badge-num">#46</span></div>
+                <div class="command-example">os.mkdir('C:\\temp\\nova_pasta')</div>
+                <div class="command-desc">Cria pasta.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.makedirs() <span class="badge-num">#47</span></div>
+                <div class="command-example">os.makedirs('C:\\temp\\pai\\filho\\neto', exist_ok=True)</div>
+                <div class="command-desc">Cria pasta (e pais se não existirem).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">open() vazio <span class="badge-num">#48</span></div>
+                <div class="command-example">open('C:\\temp\\novo.txt', 'w').close()</div>
+                <div class="command-desc">Cria arquivo vazio.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">open() + write <span class="badge-num">#49</span></div>
+                <div class="command-example">with open('C:\\temp\\novo.txt', 'w') as f: f.write('Conteúdo')</div>
+                <div class="command-desc">Cria arquivo com conteúdo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">NamedTemporaryFile <span class="badge-num">#50</span></div>
+                <div class="command-example">tempfile.NamedTemporaryFile(delete=False)</div>
+                <div class="command-desc">Cria arquivo temporário.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">mkdtemp() <span class="badge-num">#51</span></div>
+                <div class="command-example">tempfile.mkdtemp()</div>
+                <div class="command-desc">Cria pasta temporária.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.remove() <span class="badge-num">#52</span></div>
+                <div class="command-example">os.remove('C:\\temp\\arquivo.txt')</div>
+                <div class="command-desc">Deletar arquivo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.rmdir() <span class="badge-num">#53</span></div>
+                <div class="command-example">os.rmdir('C:\\temp\\pasta_vazia')</div>
+                <div class="command-desc">Deletar pasta vazia.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">shutil.rmtree() <span class="badge-num">#54</span></div>
+                <div class="command-example">shutil.rmtree('C:\\temp\\pasta_com_conteudo')</div>
+                <div class="command-desc">Deletar pasta com conteúdo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Path.rmdir() <span class="badge-num">#55</span></div>
+                <div class="command-example">Path('C:\\temp\\pasta').rmdir()</div>
+                <div class="command-desc">Deletar pasta com pathlib.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">shutil.rmtree(Path) <span class="badge-num">#56</span></div>
+                <div class="command-example">shutil.rmtree(Path('C:\\temp\\pasta'))</div>
+                <div class="command-desc">Deletar recursivo com pathlib.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.rename() <span class="badge-num">#57</span></div>
+                <div class="command-example">os.rename('C:\\temp\\antigo.txt', 'C:\\temp\\novo.txt')</div>
+                <div class="command-desc">Renomear arquivo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">shutil.move() <span class="badge-num">#58</span></div>
+                <div class="command-example">shutil.move('C:\\temp\\a.txt', 'C:\\temp\\subpasta\\a.txt')</div>
+                <div class="command-desc">Mover arquivo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">shutil.copy() <span class="badge-num">#59</span></div>
+                <div class="command-example">shutil.copy('C:\\temp\\a.txt', 'C:\\temp\\b.txt')</div>
+                <div class="command-desc">Copiar arquivo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">shutil.copy2() <span class="badge-num">#60</span></div>
+                <div class="command-example">shutil.copy2('C:\\temp\\a.txt', 'C:\\temp\\b.txt')</div>
+                <div class="command-desc">Copiar arquivo com metadados.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">shutil.copytree() <span class="badge-num">#61</span></div>
+                <div class="command-example">shutil.copytree('C:\\temp\\pasta', 'C:\\temp\\pasta_backup')</div>
+                <div class="command-desc">Copiar pasta inteira.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.symlink() <span class="badge-num">#62</span></div>
+                <div class="command-example">os.symlink('C:\\temp\\a.txt', 'C:\\temp\\link.txt')</div>
+                <div class="command-desc">Criar link simbólico.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.link() <span class="badge-num">#63</span></div>
+                <div class="command-example">os.link('C:\\temp\\a.txt', 'C:\\temp\\hardlink.txt')</div>
+                <div class="command-desc">Criar hard link.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SEÇÃO 5: BUSCAR E FILTRAR -->
+    <!-- ============================================================ -->
+    <div class="section" id="sec5">
+        <div class="section-header">
+            <i class="fas fa-filter"></i>
+            <h2>5. Buscar e Filtrar</h2>
+            <span style="font-size:0.75rem; background:#e7f0f9; padding:0.2rem 0.8rem; border-radius:30px; font-weight:600; color:#1a3a52;">Comandos 64–72</span>
+        </div>
+        <div class="command-grid">
+
+            <div class="command-card">
+                <div class="command-name">Buscar por nome <span class="badge-num">#64</span></div>
+                <div class="command-example">[f for f in os.listdir('C:\\temp') if 'relatorio' in f.lower()]</div>
+                <div class="command-desc">Busca arquivos por nome.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Buscar por extensão <span class="badge-num">#65</span></div>
+                <div class="command-example">[f for f in os.listdir('C:\\temp') if f.endswith('.pdf')]</div>
+                <div class="command-desc">Busca por extensão.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Buscar por tamanho <span class="badge-num">#66</span></div>
+                <div class="command-example">[f for f in os.listdir('C:\\temp') if os.path.getsize(os.path.join('C:\\temp', f)) > 1024*1024]</div>
+                <div class="command-desc">Busca por tamanho (maiores que 1MB).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Buscar por data <span class="badge-num">#67</span></div>
+                <div class="command-example">[f for f in os.listdir('C:\\temp') if datetime.datetime.fromtimestamp(os.path.getmtime(os.path.join('C:\\temp', f))).date() == hoje]</div>
+                <div class="command-desc">Busca por data (modificados hoje).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Buscar com regex <span class="badge-num">#68</span></div>
+                <div class="command-example">[f for f in os.listdir('C:\\temp') if re.match(r'.*\.(txt|py)$', f)]</div>
+                <div class="command-desc">Busca com regex.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Buscar conteúdo <span class="badge-num">#69</span></div>
+                <div class="command-example">for raiz, _, arquivos in os.walk('C:\\temp'): ...</div>
+                <div class="command-desc">Busca conteúdo dentro de arquivos.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Path.rglob() <span class="badge-num">#70</span></div>
+                <div class="command-example">list(Path('C:\\temp').rglob('relatorio*.pdf'))</div>
+                <div class="command-desc">Busca por nome recursivamente.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">10 maiores arquivos <span class="badge-num">#71</span></div>
+                <div class="command-example">sorted(arquivos, reverse=True)[:10]</div>
+                <div class="command-desc">Busca 10 maiores arquivos.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Arquivos duplicados <span class="badge-num">#72</span></div>
+                <div class="command-example">duplicados = {k: v for k, v in tamanhos.items() if len(v) > 1}</div>
+                <div class="command-desc">Busca arquivos duplicados (por tamanho).</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SEÇÃO 6: INFORMAÇÕES DO SISTEMA -->
+    <!-- ============================================================ -->
+    <div class="section" id="sec6">
+        <div class="section-header">
+            <i class="fas fa-desktop"></i>
+            <h2>6. Informações do Sistema</h2>
+            <span style="font-size:0.75rem; background:#e7f0f9; padding:0.2rem 0.8rem; border-radius:30px; font-weight:600; color:#1a3a52;">Comandos 73–95</span>
+        </div>
+        <div class="command-grid">
+
+            <div class="command-card">
+                <div class="command-name">platform.system() <span class="badge-num">#73</span></div>
+                <div class="command-example">platform.system()</div>
+                <div class="command-desc">Nome do sistema operacional.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">platform.release() <span class="badge-num">#74</span></div>
+                <div class="command-example">platform.release()</div>
+                <div class="command-desc">Versão do SO.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">platform.version() <span class="badge-num">#75</span></div>
+                <div class="command-example">platform.version()</div>
+                <div class="command-desc">Versão detalhada.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">platform.machine() <span class="badge-num">#76</span></div>
+                <div class="command-example">platform.machine()</div>
+                <div class="command-desc">Arquitetura.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">platform.node() <span class="badge-num">#77</span></div>
+                <div class="command-example">platform.node()</div>
+                <div class="command-desc">Nome do computador.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">platform.processor() <span class="badge-num">#78</span></div>
+                <div class="command-example">platform.processor()</div>
+                <div class="command-desc">Processador.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">python_version() <span class="badge-num">#79</span></div>
+                <div class="command-example">platform.python_version()</div>
+                <div class="command-desc">Versão do Python.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.getlogin() <span class="badge-num">#80</span></div>
+                <div class="command-example">os.getlogin()</div>
+                <div class="command-desc">Nome do usuário.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">expanduser('~') <span class="badge-num">#81</span></div>
+                <div class="command-example">os.path.expanduser('~')</div>
+                <div class="command-desc">Pasta do usuário.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.environ <span class="badge-num">#82</span></div>
+                <div class="command-example">os.environ</div>
+                <div class="command-desc">Variáveis de ambiente.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.environ.get() <span class="badge-num">#83</span></div>
+                <div class="command-example">os.environ.get('PATH')</div>
+                <div class="command-desc">Variável específica.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Definir variável <span class="badge-num">#84</span></div>
+                <div class="command-example">os.environ['MINHA_VAR'] = 'valor'</div>
+                <div class="command-desc">Definir variável de ambiente.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.getcwd() <span class="badge-num">#85</span></div>
+                <div class="command-example">os.getcwd()</div>
+                <div class="command-desc">Diretório atual.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.chdir() <span class="badge-num">#86</span></div>
+                <div class="command-example">os.chdir('C:\\temp')</div>
+                <div class="command-desc">Mudar diretório.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.sep <span class="badge-num">#87</span></div>
+                <div class="command-example">os.sep</div>
+                <div class="command-desc">Separador de caminho.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.pathsep <span class="badge-num">#88</span></div>
+                <div class="command-example">os.pathsep</div>
+                <div class="command-desc">Separador de PATH.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.linesep <span class="badge-num">#89</span></div>
+                <div class="command-example">os.linesep</div>
+                <div class="command-desc">Quebra de linha do sistema.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Listar discos (Linux) <span class="badge-num">#90</span></div>
+                <div class="command-example">os.listdir('/media/paulinho')</div>
+                <div class="command-desc">Listar discos/partições.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">disk_usage() <span class="badge-num">#91</span></div>
+                <div class="command-example">shutil.disk_usage('/')</div>
+                <div class="command-desc">Informações de disco.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">psutil.virtual_memory() <span class="badge-num">#92</span></div>
+                <div class="command-example">psutil.virtual_memory()</div>
+                <div class="command-desc">Uso de memória.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">psutil.process_iter() <span class="badge-num">#93</span></div>
+                <div class="command-example">[len(p.info) for p in psutil.process_iter()]</div>
+                <div class="command-desc">Processos rodando.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Processos Python <span class="badge-num">#94</span></div>
+                <div class="command-example">[p.info['name'] for p in psutil.process_iter() if 'python' in p.info['name'].lower()]</div>
+                <div class="command-desc">Processos Python rodando.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Tempo ligado <span class="badge-num">#95</span></div>
+                <div class="command-example">time.time() - psutil.boot_time()</div>
+                <div class="command-desc">Tempo ligado.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SEÇÃO 7: LER E ESCREVER ARQUIVOS -->
+    <!-- ============================================================ -->
+    <div class="section" id="sec7">
+        <div class="section-header">
+            <i class="fas fa-file-alt"></i>
+            <h2>7. Ler e Escrever Arquivos</h2>
+            <span style="font-size:0.75rem; background:#e7f0f9; padding:0.2rem 0.8rem; border-radius:30px; font-weight:600; color:#1a3a52;">Comandos 96–110</span>
+        </div>
+        <div class="command-grid">
+
+            <div class="command-card">
+                <div class="command-name">Ler arquivo texto <span class="badge-num">#96</span></div>
+                <div class="command-example">with open('C:\\temp\\arquivo.txt', 'r', encoding='utf-8') as f: conteudo = f.read()</div>
+                <div class="command-desc">Ler arquivo texto.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Ler linha por linha <span class="badge-num">#97</span></div>
+                <div class="command-example">with open('C:\\temp\\arquivo.txt', 'r') as f: for linha in f: print(linha.strip())</div>
+                <div class="command-desc">Ler linha por linha.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">readlines() <span class="badge-num">#98</span></div>
+                <div class="command-example">with open('C:\\temp\\arquivo.txt', 'r') as f: linhas = f.readlines()</div>
+                <div class="command-desc">Ler todas as linhas em lista.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Escrever (sobrescreve) <span class="badge-num">#99</span></div>
+                <div class="command-example">with open('C:\\temp\\novo.txt', 'w') as f: f.write('Linha 1\n')</div>
+                <div class="command-desc">Escrever arquivo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Append <span class="badge-num">#100</span></div>
+                <div class="command-example">with open('C:\\temp\\novo.txt', 'a') as f: f.write('Linha 2\n')</div>
+                <div class="command-desc">Adicionar ao arquivo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">writelines() <span class="badge-num">#101</span></div>
+                <div class="command-example">with open('C:\\temp\\novo.txt', 'w') as f: f.writelines(['Linha 1\n', 'Linha 2\n'])</div>
+                <div class="command-desc">Escrever múltiplas linhas.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Ler binário <span class="badge-num">#102</span></div>
+                <div class="command-example">with open('C:\\temp\\imagem.png', 'rb') as f: dados = f.read()</div>
+                <div class="command-desc">Ler binário.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Escrever binário <span class="badge-num">#103</span></div>
+                <div class="command-example">with open('C:\\temp\\copia.png', 'wb') as f: f.write(dados)</div>
+                <div class="command-desc">Escrever binário.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Ler JSON <span class="badge-num">#104</span></div>
+                <div class="command-example">with open('C:\\temp\\dados.json', 'r') as f: dados = json.load(f)</div>
+                <div class="command-desc">Ler JSON.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Escrever JSON <span class="badge-num">#105</span></div>
+                <div class="command-example">with open('C:\\temp\\dados.json', 'w') as f: json.dump({'nome': 'João'}, f, indent=2)</div>
+                <div class="command-desc">Escrever JSON.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Ler CSV <span class="badge-num">#106</span></div>
+                <div class="command-example">with open('C:\\temp\\dados.csv', 'r') as f: leitor = csv.reader(f)</div>
+                <div class="command-desc">Ler CSV.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Escrever CSV <span class="badge-num">#107</span></div>
+                <div class="command-example">with open('C:\\temp\\dados.csv', 'w', newline='') as f: escritor = csv.writer(f)</div>
+                <div class="command-desc">Escrever CSV.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Ler Excel <span class="badge-num">#108</span></div>
+                <div class="command-example">wb = openpyxl.load_workbook('C:\\temp\\planilha.xlsx')</div>
+                <div class="command-desc">Ler Excel.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Ler PDF <span class="badge-num">#109</span></div>
+                <div class="command-example">leitor = PyPDF2.PdfReader(f); texto = leitor.pages[0].extract_text()</div>
+                <div class="command-desc">Ler PDF.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Ler Word <span class="badge-num">#110</span></div>
+                <div class="command-example">doc = Document('C:\\temp\\doc.docx'); for p in doc.paragraphs: print(p.text)</div>
+                <div class="command-desc">Ler Word.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SEÇÃO 8: EXECUTAR COMANDOS -->
+    <!-- ============================================================ -->
+    <div class="section" id="sec8">
+        <div class="section-header">
+            <i class="fas fa-terminal"></i>
+            <h2>8. Executar Comandos do Sistema</h2>
+            <span style="font-size:0.75rem; background:#e7f0f9; padding:0.2rem 0.8rem; border-radius:30px; font-weight:600; color:#1a3a52;">Comandos 111–125</span>
+        </div>
+        <div class="command-grid">
+
+            <div class="command-card">
+                <div class="command-name">os.system() <span class="badge-num">#111</span></div>
+                <div class="command-example">os.system('dir C:\\')</div>
+                <div class="command-desc">Executar comando e ver saída.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">subprocess.run() <span class="badge-num">#112</span></div>
+                <div class="command-example">resultado = subprocess.run(['dir', 'C:\\'], capture_output=True, text=True)</div>
+                <div class="command-desc">Executar e capturar saída.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">shell=True <span class="badge-num">#113</span></div>
+                <div class="command-example">subprocess.run('echo Olá', shell=True)</div>
+                <div class="command-desc">Executar comando shell.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Executar script <span class="badge-num">#114</span></div>
+                <div class="command-example">subprocess.run(['python', 'outro_script.py'])</div>
+                <div class="command-desc">Executar Python de outro script.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">os.startfile() <span class="badge-num">#115</span></div>
+                <div class="command-example">os.startfile('C:\\temp\\arquivo.txt')</div>
+                <div class="command-desc">Abrir arquivo com programa padrão (Windows).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">webbrowser.open() <span class="badge-num">#116</span></div>
+                <div class="command-example">webbrowser.open('https://www.google.com')</div>
+                <div class="command-desc">Abrir URL no navegador.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Abrir pasta <span class="badge-num">#117</span></div>
+                <div class="command-example">os.startfile('C:\\temp')</div>
+                <div class="command-desc">Abrir pasta no explorador (Windows).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Abrir programa <span class="badge-num">#118</span></div>
+                <div class="command-example">os.startfile('notepad.exe')</div>
+                <div class="command-desc">Abrir programa (Windows).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">subprocess.run timeout <span class="badge-num">#119</span></div>
+                <div class="command-example">subprocess.run(['ping', 'google.com'], timeout=10)</div>
+                <div class="command-desc">Executar e esperar terminar.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Popen() <span class="badge-num">#120</span></div>
+                <div class="command-example">processo = subprocess.Popen(['ping', 'google.com'])</div>
+                <div class="command-desc">Executar em background.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">env modificado <span class="badge-num">#121</span></div>
+                <div class="command-example">subprocess.run(['python', '-c', 'print("oi")'], env={'PATH': os.environ['PATH']})</div>
+                <div class="command-desc">Executar com ambiente modificado.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">returncode <span class="badge-num">#122</span></div>
+                <div class="command-example">resultado = subprocess.run(['ping', 'google.com']); print(resultado.returncode)</div>
+                <div class="command-desc">Ver código de retorno.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Pipe <span class="badge-num">#123</span></div>
+                <div class="command-example">subprocess.run('dir | findstr .py', shell=True)</div>
+                <div class="command-desc">Executar comando com pipe.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Redirecionar saída <span class="badge-num">#124</span></div>
+                <div class="command-example">with open('C:\\temp\\saida.txt', 'w') as f: subprocess.run(['dir'], stdout=f)</div>
+                <div class="command-desc">Redirecionar saída para arquivo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Múltiplos comandos <span class="badge-num">#125</span></div>
+                <div class="command-example">subprocess.run('cd C:\\ && dir', shell=True)</div>
+                <div class="command-desc">Executar múltiplos comandos em sequência.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SEÇÃO 9: COMPACTAR E DESCOMPACTAR -->
+    <!-- ============================================================ -->
+    <div class="section" id="sec9">
+        <div class="section-header">
+            <i class="fas fa-file-archive"></i>
+            <h2>9. Compactar e Descompactar</h2>
+            <span style="font-size:0.75rem; background:#e7f0f9; padding:0.2rem 0.8rem; border-radius:30px; font-weight:600; color:#1a3a52;">Comandos 126–135</span>
+        </div>
+        <div class="command-grid">
+
+            <div class="command-card">
+                <div class="command-name">Criar ZIP <span class="badge-num">#126</span></div>
+                <div class="command-example">with zipfile.ZipFile('C:\\temp\\arquivo.zip', 'w') as z: z.write('C:\\temp\\a.txt')</div>
+                <div class="command-desc">Criar arquivo ZIP.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">make_archive() <span class="badge-num">#127</span></div>
+                <div class="command-example">shutil.make_archive('C:\\temp\\backup', 'zip', 'C:\\temp\\pasta')</div>
+                <div class="command-desc">Criar ZIP de pasta inteira.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Extrair ZIP <span class="badge-num">#128</span></div>
+                <div class="command-example">with zipfile.ZipFile('C:\\temp\\arquivo.zip', 'r') as z: z.extractall('C:\\temp\\extraido')</div>
+                <div class="command-desc">Extrair ZIP.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Listar ZIP <span class="badge-num">#129</span></div>
+                <div class="command-example">with zipfile.ZipFile('C:\\temp\\arquivo.zip', 'r') as z: print(z.namelist())</div>
+                <div class="command-desc">Listar conteúdo do ZIP.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Extrair específico <span class="badge-num">#130</span></div>
+                <div class="command-example">with zipfile.ZipFile('C:\\temp\\arquivo.zip', 'r') as z: z.extract('a.txt', 'C:\\temp')</div>
+                <div class="command-desc">Extrair arquivo específico.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Criar TAR <span class="badge-num">#131</span></div>
+                <div class="command-example">with tarfile.open('C:\\temp\\arquivo.tar.gz', 'w:gz') as t: t.add('C:\\temp\\pasta')</div>
+                <div class="command-desc">Criar TAR.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Extrair TAR <span class="badge-num">#132</span></div>
+                <div class="command-example">with tarfile.open('C:\\temp\\arquivo.tar.gz', 'r:gz') as t: t.extractall('C:\\temp')</div>
+                <div class="command-desc">Extrair TAR.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Criar GZIP <span class="badge-num">#133</span></div>
+                <div class="command-example">with gzip.open('C:\\temp\\arquivo.txt.gz', 'wt') as f: f.write('Conteúdo')</div>
+                <div class="command-desc">Criar GZIP.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Ler GZIP <span class="badge-num">#134</span></div>
+                <div class="command-example">with gzip.open('C:\\temp\\arquivo.txt.gz', 'rt') as f: print(f.read())</div>
+                <div class="command-desc">Ler GZIP.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Criar RAR <span class="badge-num">#135</span></div>
+                <div class="command-example">with rarfile.RarFile('C:\\temp\\arquivo.rar') as r: r.extractall('C:\\temp')</div>
+                <div class="command-desc">Criar RAR (precisa rarfile).</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SEÇÃO 10: MONITORAR E OBSERVAR -->
+    <!-- ============================================================ -->
+    <div class="section" id="sec10">
+        <div class="section-header">
+            <i class="fas fa-chart-line"></i>
+            <h2>10. Monitorar e Observar</h2>
+            <span style="font-size:0.75rem; background:#e7f0f9; padding:0.2rem 0.8rem; border-radius:30px; font-weight:600; color:#1a3a52;">Comandos 136–150</span>
+        </div>
+        <div class="command-grid">
+
+            <div class="command-card">
+                <div class="command-name">Monitorar pasta <span class="badge-num">#136</span></div>
+                <div class="command-example">def monitorar_pasta(pasta): antes = set(os.listdir(pasta)); while True: ...</div>
+                <div class="command-desc">Monitorar mudanças em pasta.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Arquivo mudou <span class="badge-num">#137</span></div>
+                <div class="command-example">def arquivo_mudou(arquivo, ultimo_tempo): return os.path.getmtime(arquivo) > ultimo_tempo</div>
+                <div class="command-desc">Verificar se arquivo mudou.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Tamanho da pasta <span class="badge-num">#138</span></div>
+                <div class="command-example">def tamanho_pasta(pasta): total = 0; for raiz, _, arquivos in os.walk(pasta): ...</div>
+                <div class="command-desc">Tamanho total de uma pasta.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Contar por extensão <span class="badge-num">#139</span></div>
+                <div class="command-example">def contar_por_extensao(pasta): from collections import Counter; ...</div>
+                <div class="command-desc">Contar arquivos por tipo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Espaço em disco <span class="badge-num">#140</span></div>
+                <div class="command-example">total, usado, livre = shutil.disk_usage('C:\\')</div>
+                <div class="command-desc">Verificar espaço em disco.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Processos em tempo real <span class="badge-num">#141</span></div>
+                <div class="command-example">for p in psutil.process_iter(['pid', 'name', 'cpu_percent']): print(p.info)</div>
+                <div class="command-desc">Listar processos em tempo real.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Matar processo <span class="badge-num">#142</span></div>
+                <div class="command-example">psutil.Process(pid).terminate()</div>
+                <div class="command-desc">Matar processo.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Portas abertas <span class="badge-num">#143</span></div>
+                <div class="command-example">psutil.net_connections()</div>
+                <div class="command-desc">Verificar portas abertas.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">IP local <span class="badge-num">#144</span></div>
+                <div class="command-example">socket.gethostbyname(socket.gethostname())</div>
+                <div class="command-desc">Verificar IP local.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Site online <span class="badge-num">#145</span></div>
+                <div class="command-example">requests.get('https://google.com').status_code == 200</div>
+                <div class="command-desc">Verificar se site está online.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Medir tempo <span class="badge-num">#146</span></div>
+                <div class="command-example">inicio = time.time(); ...; print(f'Tempo: {time.time() - inicio:.2f}s')</div>
+                <div class="command-desc">Medir tempo de execução.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">Agendar tarefa <span class="badge-num">#147</span></div>
+                <div class="command-example">import sched; agendador = sched.scheduler(time.time, time.sleep)</div>
+                <div class="command-desc">Agendar tarefa (simples).</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">É admin? (Windows) <span class="badge-num">#148</span></div>
+                <div class="command-example">ctypes.windll.shell32.IsUserAnAdmin() != 0</div>
+                <div class="command-desc">Verificar se é admin.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">É root? (Linux) <span class="badge-num">#149</span></div>
+                <div class="command-example">os.geteuid() == 0</div>
+                <div class="command-desc">Verificar se é root.</div>
+            </div>
+            <div class="command-card">
+                <div class="command-name">shutil.which() <span class="badge-num">#150</span></div>
+                <div class="command-example">shutil.which('python')</div>
+                <div class="command-desc">Obter caminho de executáveis.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <i class="fas fa-book-open"></i> 150 Comandos Python para Sistema • Baseado em <code>os.path.exists()</code> •
+        <a href="https://docs.python.org/3/library/os.path.html" target="_blank">Documentação Oficial os.path</a> •
+        <a href="https://docs.python.org/3/library/pathlib.html" target="_blank">pathlib</a>
+        <br><br>
+        💡 <strong>Dica Final:</strong> Sempre use <code>pathlib</code> para novos projetos — é mais moderno, legível e multiplataforma!
+    </div>
+
+</div>
+</body>
+</html>
