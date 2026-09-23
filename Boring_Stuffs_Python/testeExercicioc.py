@@ -1,4 +1,4 @@
-
+print('-----------------------Exercicios Teste---------------------------------')
 # import re
 
 
@@ -89,9 +89,30 @@
 
 # ------------------------------------------------------
 
-import re
+# import re
 
 
-batRegex = re.compile(r'Bat(man|mobile|copter|bat)')
-mo = batRegex.search('Batmobile lost a wheel')
-mo.group()
+# batRegex = re.compile(r'Bat(man|mobile|copter|bat)')
+# mo = batRegex.search('Batmobile lost a wheel')
+# mo.group()
+
+
+# -------------------------------------------------------
+
+# helloFile = open('C:\Full-Stack-AI-Automation-Engineer\\teste.txt')
+
+
+# helloFile = open('C:\Full-Stack-AI-Automation-Engineer\teste.txt')
+
+
+helloFile = open(r'C:\Full-Stack-AI-Automation-Engineer\teste.txt') #open TXT
+
+
+# # helloFile = open('C:/Full-Stack-AI-Automation-Engineer/teste.txt')
+
+# # helloFile = open('C:\\Full-Stack-AI-Automation-Engineer\\teste.txt')
+
+
+# from pathlib import Path
+
+# helloFile = open(Path('C:/Full-Stack-AI-Automation-Engineer/teste.txt'))
